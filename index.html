@@ -27,7 +27,8 @@
                     "
                 >
                 </div>
-                <div id="playerHealth"
+                <div
+                    id="playerHealth"
                     style="
                         position: absolute;
                         background: blue;
@@ -39,12 +40,19 @@
                 </div>
             </div>
             <!-- Timer Display -->
-            <div style="
-                background-color: red;
-                width: 100px;
-                height: 100px;
-                flex-shrink: 0;
-            ">
+            <div
+                id="timer"
+                style="
+                    background-color: red;
+                    width: 100px;
+                    height: 100px;
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                "
+            >
+                10
             </div>
             <!-- Enemy Health Display -->
             <div style="position: relative; height: 30px; width: 100%;">
@@ -55,7 +63,8 @@
                     "
                 >
                 </div>
-                <div id="enemyHealth"
+                <div 
+                    id="enemyHealth"
                     style="
                         position: absolute;
                         background: blue;
@@ -67,9 +76,23 @@
                 </div>
             </div>
         </div>
-        <canvas>
-            
-        </canvas>
+        <div 
+            id="displayText"
+            style="
+                position: absolute;
+                color: white;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                display: none;
+            "
+        >
+            Tie
+        </div>
+        <canvas></canvas>
     </div>
     
     <script src="index.js"></script>
