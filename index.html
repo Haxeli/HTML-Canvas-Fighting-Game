@@ -1,5 +1,40 @@
-<canvas>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- Red Container Div -->
+    <div style="position: relative; display: inline-block;">
+        <!-- Smaller Red Container Div -->
+        <div style="
+            position: absolute;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            padding: 20px;
+            "
+        >
+            <!-- Player1 Health Display -->
+            <div style="background-color: yellow; height: 30px; width: 100%;"></div>
+            <!-- Timer Display -->
+            <div style="
+                background-color: red;
+                width: 100px;
+                height: 100px;
+                flex-shrink: 0;
+            ">
+            </div>
+            <!-- Player2 Health Display -->
+            <div style="background-color: yellow; height: 30px; width: 100%;"></div>
+        </div>
+        <canvas>
+            
+        </canvas>
+    </div>
     
-</canvas>
+    <script src="index.js"></script>
 
-<script src="index.js"></script>
+</body>
