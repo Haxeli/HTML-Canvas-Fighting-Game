@@ -1,5 +1,12 @@
 class Sprite {
-    constructor({position, imageSrc, scale = 1, framesMax = 1, framesHold = 20, offset = {x: 0, y: 0}}) {
+    constructor({
+        position,
+        imageSrc,
+        scale = 1,
+        framesMax = 1,
+        framesHold = 20,
+        offset = {x: 0, y: 0}
+    }) {
         this.position = position
         this.width = 50
         this.height = 150
@@ -90,9 +97,6 @@ class Fighter extends Sprite {
             for (const sprite in sprites) {
                 sprites[sprite].image = new Image()
                 sprites[sprite].image.src = sprites[sprite].imageSrc
-                sprites[sprite].image.onload = function() {
-                    console.log(sprite + ' image loaded')
-                }
             }
     }
 
@@ -108,6 +112,7 @@ class Fighter extends Sprite {
 
         if (this.position.y + this.height + this.velocity.y >= canvas.height - 141) {
             this.velocity.y = 0
+            this.position.y = 573
         } else this.velocity.y += gravity
     }
 
@@ -122,25 +127,34 @@ class Fighter extends Sprite {
         switch(sprite) {
             case 'idle':
                 if (this.image !== this.sprites.idle.image) {
+                    //console.log(`Switched to ${sprite} sprite`)
                     this.image = this.sprites.idle.image
-                    this.frameMax = this.sprites.idle.framesMax
+                    this.framesMax = this.sprites.idle.framesMax
                     this.framesCurrent = 0
                 }
                 break
             case 'run':
                 if (this.image !== this.sprites.run.image) {
+                    //console.log(`Switched to ${sprite} sprite`)
                     this.image = this.sprites.run.image
-                    this.frameMax = this.sprites.run.framesMax
+                    this.framesMax = this.sprites.run.framesMax
                     this.framesCurrent = 0
                 }
                 break
             case 'jump':
                 if ( this.image !== this.sprites.jump.image) {
+                    //console.log(`Switched to ${sprite} sprite`)
                     this.image = this.sprites.jump.image
-                    this.frameMax = this.sprites.jump.framesMax
+                    this.framesMax = this.sprites.jump.framesMax
                     this.framesCurrent = 0
-                    console.log('Switching sprite to jump')
-                    console.log('image: ' + this.sprites.jump.imageSrc)
+                }
+                break
+            case 'fall':
+                if ( this.image !== this.sprites.fall.image) {
+                    //console.log(`Switched to ${sprite} sprite`)
+                    this.image = this.sprites.fall.image
+                    this.framesMax = this.sprites.fall.framesMax
+                    this.framesCurrent = 0
                 }
                 break
         }
