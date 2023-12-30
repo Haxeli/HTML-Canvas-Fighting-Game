@@ -126,7 +126,7 @@ class Fighter extends Sprite {
 
     spriteHandler(sprite) {
         if (this.image !== this.sprites[sprite].image) {
-            //console.log(`Switched to ${sprite} sprite`)
+            console.log(`Switched to ${sprite} sprite`)
             this.image = this.sprites[sprite].image
             this.framesMax = this.sprites[sprite].framesMax
             this.framesCurrent = 0
