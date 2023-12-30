@@ -1,0 +1,5 @@
+This file contains documented differences between this project and the original tutorial
+
+- All images look sharper due to resizing in a photo editor rather than in code
+- Sprites take fps as a parameter
+- Code checks for image loading
