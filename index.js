@@ -43,7 +43,20 @@ const player = new Fighter({
     scale: 1,
     framesMax: 8,
     framesHold: 14,
-    offset: {x: 100, y: 155}
+    offset: {
+        x: 100,
+        y: 155
+    },
+    sprites: {
+        idle: {
+            imageSrc: './img/samuraiMack/Idle-x2.5.png',
+            framesMax: 8,
+        },
+        run: {
+            imageSrc: './img/samuraiMack/Run-x2.5.png',
+            framesMax: 8,
+        }
+    }
 })
 
 const enemy = new Fighter({
@@ -95,10 +108,13 @@ function animate() {
     enemy.velocity.x = 0
 
     // player movement
+    player.image = player.sprites.idle.image
     if (keys.a.pressed && player.lastKey === 'a') {
         player.velocity.x = -5
+        player.image = player.sprites.run.image
     } else if (keys.d.pressed && player.lastKey === 'd') {
         player.velocity.x = 5
+        player.image = player.sprites.run.image
     }
 
     // enemy player movement
