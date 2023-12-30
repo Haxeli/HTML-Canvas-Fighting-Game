@@ -13,10 +13,7 @@ class Sprite {
         this.framesHold = framesHold
         this.offset = offset
 
-        this.image.onload = () => {
-            console.log('image source: ', this.image.src)
-            this.imageLoaded = true
-        }
+        this.image.onload = () => this.imageLoaded = true
     }
 
     draw() {
@@ -93,6 +90,9 @@ class Fighter extends Sprite {
             for (const sprite in sprites) {
                 sprites[sprite].image = new Image()
                 sprites[sprite].image.src = sprites[sprite].imageSrc
+                sprites[sprite].image.onload = function() {
+                    console.log(sprite + ' image loaded')
+                }
             }
     }
 
@@ -116,5 +116,33 @@ class Fighter extends Sprite {
         setTimeout(() => {
             this.isAttacking = false
         }, 100)
+    }
+
+    switchSprite(sprite) {
+        switch(sprite) {
+            case 'idle':
+                if (this.image !== this.sprites.idle.image) {
+                    this.image = this.sprites.idle.image
+                    this.frameMax = this.sprites.idle.framesMax
+                    this.framesCurrent = 0
+                }
+                break
+            case 'run':
+                if (this.image !== this.sprites.run.image) {
+                    this.image = this.sprites.run.image
+                    this.frameMax = this.sprites.run.framesMax
+                    this.framesCurrent = 0
+                }
+                break
+            case 'jump':
+                if ( this.image !== this.sprites.jump.image) {
+                    this.image = this.sprites.jump.image
+                    this.frameMax = this.sprites.jump.framesMax
+                    this.framesCurrent = 0
+                    console.log('Switching sprite to jump')
+                    console.log('image: ' + this.sprites.jump.imageSrc)
+                }
+                break
+        }
     }
 }
