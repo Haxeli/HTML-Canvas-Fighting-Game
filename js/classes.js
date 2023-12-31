@@ -166,26 +166,6 @@ class Fighter extends Sprite {
             case (sprite):
                 this.spriteHandler(sprite)
                 break
-            /*
-            case 'idle':
-                this.spriteHandler(sprite)
-                break
-            case 'run':
-                this.spriteHandler(sprite)
-                break
-            case 'jump':
-                this.spriteHandler(sprite)
-                break
-            case 'fall':
-                this.spriteHandler(sprite)
-                break
-            case 'attack1':
-                this.spriteHandler(sprite)
-                break
-            case 'takeHit':
-                this.spriteHandler(sprite)
-                break
-            */
         }
     }
 }
