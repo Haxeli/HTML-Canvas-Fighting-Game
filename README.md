@@ -8,4 +8,5 @@ This project was created using HTML-Canvas and JavaScript.
 ### List of improvements compared to the original tutorial:
 - All images have been resized appropriately in a photo editor rather than in code. This causes the sprites to maintain their original sharp textures.
 - Sprites take FPS as a parameter for easy animation manipulation.
+- Sprite handling is reusable.
 - Code checks for image loading.

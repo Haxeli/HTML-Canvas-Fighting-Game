@@ -143,6 +143,11 @@ class Fighter extends Sprite {
         this.isAttacking = true
     }
 
+    takeHit() {
+        this.switchSprite('takeHit')
+        this.health -= 10
+    }
+
     spriteHandler(sprite) {
         if (this.image !== this.sprites[sprite].image) {
             console.log(`Switched to ${sprite} sprite`)
@@ -153,21 +158,12 @@ class Fighter extends Sprite {
     }
 
     switchSprite(sprite) {
+        // override other animations with attack animation
         if (this.image === this.sprites.attack1.image && this.framesCurrent < this.sprites.attack1.framesMax - 1) return
+        // override other animations with takeHit animation
+        if (this.image === this.sprites.takeHit.image && this.framesCurrent < this.sprites.takeHit.framesMax - 1) return
         switch(sprite) {
-            case 'idle':
-                this.spriteHandler(sprite)
-                break
-            case 'run':
-                this.spriteHandler(sprite)
-                break
-            case 'jump':
-                this.spriteHandler(sprite)
-                break
-            case 'fall':
-                this.spriteHandler(sprite)
-                break
-            case 'attack1':
+            case (sprite):
                 this.spriteHandler(sprite)
                 break
         }
