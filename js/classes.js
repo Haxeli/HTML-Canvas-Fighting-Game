@@ -64,6 +64,11 @@ class Fighter extends Sprite {
             framesHold = 20,
             offset = {x: 0, y: 0},
             sprites,
+            hitBox = {
+                offset: {},
+                width: undefined,
+                height: undefined
+            },
             attackBox = {
                 offset: {},
                 width: undefined,
@@ -83,6 +88,15 @@ class Fighter extends Sprite {
             this.width = 50
             this.height = 150
             this.lastKey
+            this.hitBox = {
+                position: {
+                    x: this.position.x,
+                    y: this.position.y
+                },
+                offset: hitBox.offset,
+                width: hitBox.width,
+                height: hitBox.height
+            }
             this.attackBox = {
                 position: {
                     x: this.position.x,
@@ -155,6 +169,7 @@ class Fighter extends Sprite {
                 break
             case 'attack1':
                 this.spriteHandler(sprite)
+                break
         }
     }
 }

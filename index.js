@@ -227,7 +227,7 @@ function animate() {
             rectangle1: enemy,
             rectangle2: player
         }) &&
-        enemy.isAttacking && enemy.framesCurrent === 2
+        enemy.isAttacking && enemy.framesCurrent === 1
     ) {
         enemy.isAttacking = false
         player.health -= 10
@@ -235,7 +235,7 @@ function animate() {
     }
 
     // if enemy misses
-    if (enemy.isAttacking && enemy.framesCurrent === 2) {
+    if (enemy.isAttacking && enemy.framesCurrent === 1) {
         enemy.isAttacking = false
     }
 
