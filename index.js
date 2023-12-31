@@ -68,6 +68,14 @@ const player = new Fighter({
             imageSrc: './img/samuraiMack/Attack1-x2.5.png',
             framesMax: 6,
         },
+    },
+    attackBox: {
+        offset: {
+            x: 170,
+            y: 20
+        },
+        width: 200,
+        height: 130
     }
 })
 
@@ -114,6 +122,14 @@ const enemy = new Fighter({
             imageSrc: './img/kenji/Attack1Kenji.png',
             framesMax: 4,
         },
+    },
+    attackBox: {
+        offset: {
+            x: -70,
+            y: 20
+        },
+        width: 200,
+        height: 130
     }
 })
 
@@ -139,7 +155,7 @@ decreaseTimer()
 
 function animate() {
     window.requestAnimationFrame(animate)
-    c.fillStyle = 'black'
+    c.fillStyle = 'green'
     c.fillRect(0, 0, canvas.width, canvas.height)
     background.update()
     shop.update()
@@ -187,29 +203,40 @@ function animate() {
         enemy.switchSprite('fall')
     }
 
-    // detect for collision
+    // detect for player collision
     if (
         rectangularCollision({
             rectangle1: player,
             rectangle2: enemy
         }) &&
-        player.isAttacking
+        player.isAttacking && player.framesCurrent === 4
     ) {
         player.isAttacking = false
         enemy.health -= 10
         document.querySelector('#enemyHealth').style.width = enemy.health + '%'
     }
 
+    // if player misses
+    if (player.isAttacking && player.framesCurrent === 4) {
+        player.isAttacking = false
+    }
+
+    // detect for enemy collision
     if (
         rectangularCollision({
             rectangle1: enemy,
             rectangle2: player
         }) &&
-        enemy.isAttacking
+        enemy.isAttacking && enemy.framesCurrent === 1
     ) {
         enemy.isAttacking = false
         player.health -= 10
         document.querySelector('#playerHealth').style.width = player.health + '%'
+    }
+
+    // if enemy misses
+    if (enemy.isAttacking && enemy.framesCurrent === 1) {
+        enemy.isAttacking = false
     }
 
     // end game based on health
