@@ -1,6 +1,5 @@
 # Fighting Game
 Play at https://gamedevgains.itch.io/fighting-game
-This project was created using HTML-Canvas and JavaScript.
 
 ![2](https://github.com/Haxeli/HTML-Canvas-Fighting-Game/assets/79052109/bd547e81-92ee-41ae-85a4-804aa51b1bfd)
 
